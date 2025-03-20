@@ -29,7 +29,7 @@ pip install -r requirements.txt
 
 ### Run the Service
 ```
-docker-compose up -d --build
+sudo docker-compose up -d --build
 ```
 The following services and their respective endpoints:
 * FastAPI API: http://localhost:8000
