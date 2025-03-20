@@ -24,7 +24,6 @@ cd mlops-project
 ```
 sudo apt update
 sudo apt install -y docker-compose python3-pip
-pip install -r requirements.txt
 ```
 
 ### Run the Service
