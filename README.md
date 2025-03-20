@@ -41,3 +41,14 @@ curl -X 'POST' 'http://localhost:8000/predict' \
 -H 'Content-Type: application/json' \
 -d '{"Pclass": 3, "Sex": 1, "Age": 22, "Fare": 7.25}'
 ```
+
+## Monitoring with Prometheus & Grafana
+* Prometheus scrapes metrics from FastAPI at /metrics.
+* Grafana visualizes API performance and server health.
+
+## Next Steps
+
+* Add Auto-scaling to EC2 deployment.
+* Implement logging & alerting for API failures.
+* Optimize model inference performance.
+
