@@ -5,4 +5,4 @@ scikit-learn
 pydantic
 prometheus_client
 fastapi
-uvicorn
+uvicorn 
