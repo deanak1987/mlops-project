@@ -6,3 +6,5 @@ pydantic
 prometheus_client
 fastapi
 uvicorn 
+docker
+docker-compose
