@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  fastapi:
+    image: ml-fastapi  # Ensure this is the name of your FastAPI image
+    container_name: fastapi
+    build: .
+    ports:
+      - "8000:8000"
+    networks:
+      - mlops-network
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - mlops-network
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - mlops-network
+
+networks:
+  mlops-network:
+    driver: bridge
