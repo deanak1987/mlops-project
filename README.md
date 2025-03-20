@@ -2,6 +2,9 @@
 Automated Model Deployment with Docker, GitHub Actions, and AWS
  ## Project Overview
 This project demonstrates end-to-end machine learning model deployment using FastAPI, Docker, Prometheus, and Grafana, orchestrated with Docker Compose. It automates deployment on an AWS EC2 instance via GitHub Actions, ensuring seamless updates on each code push.
+
+It utilizes the Kaggle Titanic Machine Learning from Disaster dataset as it can utilize simple and lightweight models, such as RandomForests.
+
 ## Key Features
 
 * FastAPI backend for serving a trained ML model (Titanic survival prediction).
