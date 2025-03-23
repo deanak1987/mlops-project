@@ -1,4 +1,4 @@
-# MLOps Project
+gi# MLOps Project
 Automated Model Deployment with Docker, GitHub Actions, and AWS
  ## Project Overview
 This project demonstrates end-to-end machine learning model deployment using FastAPI, Docker, Prometheus, and Grafana, orchestrated with Docker Compose. It automates deployment on an AWS EC2 instance via GitHub Actions, ensuring seamless updates on each code push.
