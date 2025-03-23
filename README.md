@@ -14,6 +14,20 @@ It utilizes the Kaggle Titanic Machine Learning from Disaster dataset as it can 
 * GitHub Actions CI/CD for automatic deployment to AWS EC2 on push to main.
 
 ## To Run:
+### Configure and Deploy AWS EC2 Instance
+Deploy t2.micro with the following settings: 
+* Ubuntu 22.04 
+* RSA key pair (I titled mine mlops-key.pem)
+* Create a security group to allow access to: 
+  * Port 22 for SSH pointed at your respective IP addresss
+  * Port 80 open to 0.0.0.0/0 for HTTP
+  * Ports 8000, 9090, 3000 open to 0.0.0.0/0 for FastAPI, Prometheus, and Grafana
+* Spot pricing since the machine is not intended to be running very long
+
+Alternatively, a template can be cheated for ease of deployment
+
+Launch the instance
+
 ### Clone Repository
 ```
 git clone https://github.com/deanak1987/mlops-project.git
