@@ -16,11 +16,13 @@ app = FastAPI()
 prediction_counter = Counter("predictions_total", "Total predictions made")
 error_counter = Counter("prediction_errors_total", "Total prediction errors")
 
+
 class InputData(BaseModel):
     Pclass: int
     Sex: int
     Age: float
     Fare: float
+
 
 @app.post("/predict")
 def predict(data: InputData):
@@ -32,6 +34,7 @@ def predict(data: InputData):
     except Exception as e:
         error_counter.inc()
         return {"error": str(e)}
+
 
 @app.get("/metrics")
 def metrics():
