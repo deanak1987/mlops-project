@@ -24,7 +24,7 @@ Deploy t2.micro with the following settings:
   * Ports 8000, 9090, 3000 open to 0.0.0.0/0 for FastAPI, Prometheus, and Grafana
 * Spot pricing since the machine is not intended to be running very long
 
-Alternatively, a template can be cheated for ease of deployment
+Alternatively, a template can be created for ease of deployment
 
 Launch the instance
 
