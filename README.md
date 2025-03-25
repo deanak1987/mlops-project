@@ -66,3 +66,4 @@ curl -X 'POST' 'http://localhost:8000/predict' \
 * Implement logging & alerting for API failures.
 * Optimize model inference performance.
 
+[![Deploy MLOps Project](https://github.com/deanak1987/mlops-project/actions/workflows/manual.yml/badge.svg)](https://github.com/deanak1987/mlops-project/actions/workflows/manual.yml)
