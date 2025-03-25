@@ -12,26 +12,44 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Deploy to EC2
+      - name: Install dependencies
         run: |
-          echo "$EC2_SSH_KEY" > private_key.pem
-          chmod 600 private_key.pem
+          sudo apt update
+          sudo apt install -y python3 python3-pip
+          pip install -r requirements.txt
+
+      - name: Verify installation
+        run: |
+          python3 --version
+          pip --version
+      - name: Lint with pylint
+        run: |
+          make lint
+      - name: Test with pytest
+        run: |
+          make test
+      - name: Format code
+        run: |
+          make format
+      # - name: Deploy to EC2
+      #   run: |
+      #     echo "$EC2_SSH_KEY" > private_key.pem
+      #     chmod 600 private_key.pem
           
-          ssh -o StrictHostKeyChecking=no -i private_key.pem $EC2_USER@$EC2_HOST << 'EOF'
-            # Install dependencies
-            sudo apt update
-            sudo apt install -y docker-compose python3-pip
+      #     ssh -o StrictHostKeyChecking=no -i private_key.pem $EC2_USER@$EC2_HOST << 'EOF'
+      #       # Install dependencies
+      #       sudo apt update
+      #       sudo apt install -y docker-compose python3-pip
             
-            # Clone repo if not exists
-            cd ~/mlops-project || git clone https://github.com/deanak1987/mlops-project.git && cd mlops-project
+      #       # Clone repo if not exists
+      #       cd ~/mlops-project || git clone https://github.com/deanak1987/mlops-project.git && cd mlops-project
             
-            # Update project and install Python dependencies
-            git pull origin main
-            pip install --upgrade pip
-            pip install -r requirements.txt
+      #       # Update project and install Python dependencies
+      #       git pull origin main
+      #       pip install --upgrade pip
+      #       pip install -r requirements.txt
             
-            # Restart Docker Compose services
-            sudo docker-compose down
-            sudo docker-compose up -d --build
-          EOF
+      #       # Restart Docker Compose services
+      #       sudo docker-compose down
+      #       sudo docker-compose up -d --build
+      #     EOF
