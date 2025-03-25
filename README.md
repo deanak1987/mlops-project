@@ -28,6 +28,11 @@ Alternatively, a template can be created for ease of deployment
 
 Launch the instance
 
+### Log in to EC2 Machine
+~~~
+ssh -i mlops-key.pem ubuntu@<EC2_IP_ADDRESS>
+~~~
+
 ### Clone Repository
 ```
 git clone https://github.com/deanak1987/mlops-project.git
