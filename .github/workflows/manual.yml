@@ -15,6 +15,7 @@ jobs:
       
       - name: Format code
         run: |
+          pip install black
           black *.py
       # - name: Deploy to EC2
       #   run: |
