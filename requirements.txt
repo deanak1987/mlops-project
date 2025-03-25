@@ -1,7 +1,12 @@
+Cython
 pandas
 numpy
+pytest
+black
+pylint
 joblib
 scikit-learn==1.6.0
+PyYAML>=6.0
 pydantic
 prometheus_client
 fastapi
